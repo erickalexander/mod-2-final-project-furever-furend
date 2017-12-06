@@ -38,7 +38,7 @@ class User < ApplicationRecord
     end
     y = Home.find(self.home_id)
     case y
-    when y.location.downcase == "suburb"
+    when y.city_or_suburb.downcase == "suburb"
       points += 4
     else
       points += 2
