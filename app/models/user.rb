@@ -12,7 +12,7 @@ class User < ApplicationRecord
     case x
     when x < 25000
       points += 1
-    when x < 50000
+    when x < 70000
       points += 2
     else
       points += 3
@@ -24,35 +24,55 @@ class User < ApplicationRecord
     else
       points -= 3
     end
-    points = 0 if points < 0
     points
   end
 
   def assign_home_points #to be edited
     points =
-    if params[:user][:home][].downcase == "Apartment"
+    if params[:user][:home][:type].downcase == "apartment"
       points += 2
     else
       points += 4
     end
-    if city_or_suburb.downcase == "suburb"
+    if params[:user][:home][:location].downcase == "suburb"
       points += 4
     else
       points += 2
     end
-    if num_of_rooms < 0
+    if params[:user][:home][:num_of_rooms] < 2
       points += 1
-    elsif num_of_rooms > 2
+    else
+      points += 2
+    end
+    if params[:user][:home][:num_of_occupants] < 2
+      points += 1
+    else
+      points += 2
+    end
+
+    if params[:user][:home][:kids] == false
+      points += 1
+    else
+      points += 2
+    end
+
+    if params[:user][:home][:pets] == false
+      points += 1
+    else
       points += 2
     end
     points
   end
 
   def get_list_of_dogs
-    if (1 < self.assign_home_points) && (self.assign_home_points < 4)
-      Dog.where(size: "s")
-    elsif (5 < self.assign_home_points) && (self.assign_home_points < 7)
-      Dog.where(size: "l")
+    if (1 < self.assign_home_points) && (self.assign_home_points < 8)
+      Dog.where(size: "s" AND children_friendly: false AND dog_friendly: false AND barking_level: 1 AND energy_level: 'Not Very Active' || 'Somewhat Active' )
+      Dog.where("(size = ? or size = ?) and children_friendly = ?", 's','m', false)
+
+    elsif (8 < self.assign_home_points) && (self.assign_home_points < 14)
+      Dog.where(size: "s" || "m" AND children_friendly: true AND dog_friendly: false AND barking_level: 1 || 2 AND energy_level:'Somewhat Active' )
+    elsif (14 < self.assign_home_points) && (self.assign_home_points < 20)
+      Dog.where(size: "s" || "m" || "l" AND children_friendly: true || false AND dog_friendly: true || false AND barking_level: 2 || 3 AND energy_level:'Somewhat Active' || 'Very Active' )
     end
   end
 
