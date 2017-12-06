@@ -1,25 +1,10 @@
-<!-- Show list of dogs User saved -->
-<% if @filtered %>
-  <%@filtered.each do |dog|%>
-    <%=dog.breed%>
-  <% end %>
-<!-- user/:id/:edit -->
-<br>
-  <%=form_for @user do |f|%> #goes to update
-    <%=f.collection_check_boxes :dogs, @filtered, :id, :breed%>
-    <%=f.submit%>
-  <%end%><br>
-<!--  -->
-<br>
-<% else %>
   <%if @user.dogs.count == 0%>
     <p>You have no saved dogs yet!</p>
   <%else%>
     <%@user.dogs.each do |dog|%>
-      <%=dog.breed%>
+      <%=link_to dog.breed, dog_path(dog)%>
     <% end %>
   <%end%>
 
-<% end %><br>
 
 <!--  -->

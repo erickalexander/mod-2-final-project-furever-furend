@@ -1,0 +1,10 @@
+<% if @filtered %>
+  <%@filtered.each do |dog|%>
+    <%=dog.breed%>
+  <% end %>
+<!-- user/:id/:edit -->
+<br>
+  <%= form_tag("/users/#{@user.id}/dogs", method: :put) do %>
+    <%=collection_check_boxes :user, :dogs, @filtered, :id, :breed%>
+    <%=f.submit%>
+  <%end%><br>
