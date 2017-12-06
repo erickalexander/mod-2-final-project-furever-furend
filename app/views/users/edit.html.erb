@@ -3,10 +3,14 @@
 <br>
 <%= form_tag("/users/#{@user.id}", method: :put) do %>
 <h2>Job Info</h2>
-<p> Salary: <%= text_field_tag 'user[job][salary]' %> </p>
-<p> Work Hours: <%= text_field_tag 'user[job][num_hours_at_work]' %> </p>
+<p> Salary: <%= number_field_tag 'user[job][salary]' %> </p>
+<p> Work Hours: <%= number_field_tag 'user[job][num_hours_at_work]' %> </p>
 <h2>Home Info</h2>
 <p> Location (city | suburb): <%= text_field_tag 'user[home][location]' %> </p>
 <p> Type (apartment | house): <%= text_field_tag 'user[home][type]' %> </p>
+<p> Number of Rooms: <%= number_field_tag 'user[home][num_of_rooms]' %></p>
+<p> Number of Occupants: <%= number_field_tag 'user[home][num_of_occupants]' %></p>
+<p> Any children? (yes | no): <%= text_field_tag 'user[home][kids]' %></p>
+<p> Any pets? (yes | no): <%= text_field_tag 'user[home][pets]' %> </p>
 <%= submit_tag "Find Your Fur-end!" %>
 <% end %>
