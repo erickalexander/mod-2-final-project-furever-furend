@@ -21,29 +21,32 @@ class UsersController < ApplicationController
     redirect_to edit_user_path(@user)
   end
 
-  def show
-    if !User.find(params[:id])[:dogs].empty?
-      @user = User.find(params[:id])
-    elsif User.find(params[:id])[:job_id]
-     @user = User.find(params[:id]) #later will be sessions
-     @filtered = @user.get_list_of_dogs(params[:user][:salary], params[:user][:type])
-    end
 
+  def show
+    @user = User.find(params[:id])
+  end
+
+  def dogs
+    @user = User.find(params[:id])
+    if !@user[:job_id].nil?
+      #later will be sessions
+     @filtered = @user.get_list_of_dogs
+    end
+  end
+
+  def assign_dogs
+    @user = User.find(params[:id])
+    @user.dogs << params[:dogs]
+    redirect_to user_path(@user)
   end
 
   def edit
     @user = User.find(params[:id])
-
   end
 
   def update
     # byebug
-    if params[:user][:dogs].empty?
-      @user = User.find(params[:id])
-      @user.dogs << params[:dogs]
-      redirect_to user_path(@user)
-    else
-      @user = User.find(params[:id])
+    @user = User.find(params[:id])
       if !@user.job_id && !@user.home_id
         @job = Job.create(params[:user][:job])
         @user.job_id = @job.id
@@ -53,10 +56,9 @@ class UsersController < ApplicationController
       end
       if !@user.home_id
         @home =
-      redirect_to user_path(@user)
+      redirect_to user_dogs_path(@user)
       end
 
-    end
   end
 
   private
