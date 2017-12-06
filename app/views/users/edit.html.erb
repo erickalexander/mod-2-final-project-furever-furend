@@ -1,0 +1,24 @@
+<h1>Edit/Update Profile for <%=@user.username %> </h1>
+
+<h1>Filter Table</h1>
+
+
+<%= form_for @user do |f| %>
+<h3>Job Info</h3>
+<%= f.label 'Salary'  %><br>
+<%= f.collection_select :salary, ['0-25k', '25k-50k', '25k-75k', '75k-100k'], :to_s, :to_s %> <br><br>
+<%= f.label 'Work Hours' %><br>
+<%= f.collection_select :workhours,(1..10), :to_s, :to_s %><br>
+<h3>Home Info</h3>
+<%= f.label 'Location' %><br>
+<%= f.collection_select :location, ['city', 'suburbs'], :to_s, :to_s %><br><br>
+<%= f.label 'Type' %><br>
+<%= f.collection_select :type, ['apartment', 'house'], :to_s, :to_s %><br><br>
+<%= f.label 'Number of Rooms' %><br>
+<%= f.collection_select :numberofrooms, (1..5), :to_s, :to_s %><br><br>
+<%= f.label 'Kids' %><br>
+<%= f.collection_select :kids, ['yes', 'no'], :to_s, :to_s %><br><br>
+<%= f.label 'Pets' %><br>
+<%= f.collection_select :pets, ['yes', 'no'], :to_s, :to_s %> <br><br>
+<%= f.submit  %><br>
+<% end %>
