@@ -31,14 +31,13 @@ class UsersController < ApplicationController
 
   def update
     byebug
-    if params[:dogs]
+    if params[:user][:dogs].empty?
       @user = User.find(params[:id])
       @user.dogs << params[:dogs]
       redirect_to user_path(@user)
     else
-
       @user = User.find(params[:id])
-      if !@user.job_id
+      if !@user.job_id && !@user.home_id
         @job = Job.create(params[:user][:job])
         @user.job_id = @job.id
       else
@@ -56,7 +55,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password_digest)
+    params.require(:user).permit(:username, :password, :password_confirmation, :job_id, :home_id)
   end
 
 end
