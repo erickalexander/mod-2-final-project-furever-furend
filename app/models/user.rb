@@ -66,13 +66,13 @@ class User < ApplicationRecord
 
   def get_list_of_dogs
     if (1 < self.assign_home_points) && (self.assign_home_points < 8)
-      Dog.where(size: "s" AND children_friendly: false AND dog_friendly: false AND barking_level: 1 AND energy_level: 'Not Very Active' || 'Somewhat Active' )
-      Dog.where("(size = ? or size = ?) and children_friendly = ?", 's','m', false)
+      Dog.where("size = ? and (barking_level = ? or barking_level = ?)  and (energy_level = ? or energy_level = ?)", 's', 1, 2, 'Not very active','Somewhat active')
 
     elsif (8 < self.assign_home_points) && (self.assign_home_points < 14)
-      Dog.where(size: "s" || "m" AND children_friendly: true AND dog_friendly: false AND barking_level: 1 || 2 AND energy_level:'Somewhat Active' )
+      Dog.where("(size = ? or size = ?) and (barking_level = ? or barking_level = ?)  and (energy_level = ? or energy_level = ?)", 's', 'm', 1, 2, 'Very active','Somewhat active')
+      
     elsif (14 < self.assign_home_points) && (self.assign_home_points < 20)
-      Dog.where(size: "s" || "m" || "l" AND children_friendly: true || false AND dog_friendly: true || false AND barking_level: 2 || 3 AND energy_level:'Somewhat Active' || 'Very Active' )
+      Dog.where("(energy_level = ? or energy_level = ?) and children_friendly =? ", 'Very active','Somewhat active', true)
     end
   end
 
