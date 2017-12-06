@@ -4,6 +4,7 @@
     <%=dog.breed%>
   <% end %>
 <!-- user/:id/:edit -->
+<br>
   <%=form_for @user do |f|%> #goes to update
     <%=f.collection_check_boxes :dogs, @filtered, :id, :breed%>
     <%=f.submit%>
