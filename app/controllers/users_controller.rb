@@ -36,6 +36,7 @@ class UsersController < ApplicationController
 
   def assign_dogs
     @user = User.find(params[:id])
+    byebug
     @user.dogs << params[:dogs]
     redirect_to user_path(@user)
   end

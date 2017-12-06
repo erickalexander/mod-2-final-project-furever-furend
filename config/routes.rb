@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get "signup", to: "users#new", as: 'signup'
   get "users/:id/dogs", to: "users#dogs", as: 'user_dogs'
-  post "users/:id/dogs", to: "users#assign_dogs"
+  patch "users/:id/dogs", to: "users#assign_dogs"
   get "/signin", to: "sessions#new", as: 'signin'
   post "/sessions", to: "sessions#create", as: "sessions"
   delete "/sessions", to: "sessions#destroy", as: "signout"

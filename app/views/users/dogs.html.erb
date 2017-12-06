@@ -4,7 +4,7 @@
   <% end %>
 <!-- user/:id/:edit -->
 <br>
-  <%= form_tag("/users/#{@user.id}/dogs", method: :put) do %>
+  <%= form_tag("/users/#{@user.id}/dogs", method: :patch) do %>
     <%=collection_check_boxes :user, :dogs, @filtered, :id, :breed%>
     <%=f.submit%>
   <%end%><br>
