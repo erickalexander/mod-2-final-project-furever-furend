@@ -4,6 +4,8 @@ class User < ApplicationRecord
   has_many :user_dogs
   has_many :dogs, through: :user_dogs
 
+  validates :username, uni
+
   def assign_job_points
     points = 0
     x = params[:user][:job][:salary]
@@ -17,7 +19,7 @@ class User < ApplicationRecord
     end
     y = params[:user][:job][:num_hours_at_work]
     case y
-    if y < 7
+    when if y < 7
       points += 3
     else
       points -= 3

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :authorized, only: [:new, :create]
 
   def index
   end
@@ -8,7 +9,14 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
+    @user = User.new(user_params)
+
+    if @user.valid?
+      @user.save
+      session[:user_id] = @user.id
+    else
+      render 'new'
+    end
     # byebug
     redirect_to edit_user_path(@user)
   end
