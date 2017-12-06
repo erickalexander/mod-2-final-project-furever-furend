@@ -10,7 +10,7 @@
 <p> Type (apartment | house): <%= text_field_tag 'user[home][type]' %> </p>
 <p> Number of Rooms: <%= number_field_tag 'user[home][num_of_rooms]' %></p>
 <p> Number of Occupants: <%= number_field_tag 'user[home][num_of_occupants]' %></p>
-<p> Any children? (yes | no): <%= text_field_tag 'user[home][kids]' %></p>
-<p> Any pets? (yes | no): <%= text_field_tag 'user[home][pets]' %> </p>
+<p> Any children? (check if yes): <%= check_box_tag 'user[home][kids]', 'user[home][kids]' %></p>
+<p> Any pets? (check if yes): <%= check_box_tag 'user[home][pets]', 'user[home][pets]' </p>
 <%= submit_tag "Find Your Fur-end!" %>
 <% end %>
