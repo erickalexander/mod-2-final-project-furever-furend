@@ -14,11 +14,11 @@ class UsersController < ApplicationController
     if @user.valid?
       @user.save
       session[:user_id] = @user.id
+      redirect_to edit_user_path(@user)
     else
       render 'new'
     end
     # byebug
-    redirect_to edit_user_path(@user)
   end
 
 
@@ -28,6 +28,7 @@ class UsersController < ApplicationController
 
   def dogs
     @user = User.find(params[:id])
+    byebug
     if !@user[:job_id].nil?
       #later will be sessions
      @filtered = @user.get_list_of_dogs
@@ -36,7 +37,7 @@ class UsersController < ApplicationController
 
   def assign_dogs
     @user = User.find(params[:id])
-    byebug
+
     @user.dogs << params[:dogs]
     redirect_to user_path(@user)
   end
@@ -48,17 +49,23 @@ class UsersController < ApplicationController
   def update
     # byebug
     @user = User.find(params[:id])
-      if !@user.job_id && !@user.home_id
-        @job = Job.create(params[:user][:job])
+
+      if @user.job_id.nil? && @user.home_id.nil?
+        @job = Job.create(salary: params[:user][:job][:salary], num_hours_at_work: params[:user][:job][:num_hours_at_work])
         @user.job_id = @job.id
+        @user.save
+        @home = Home.create(city_or_suburb: params[:user][:home][:city_or_suburb], apt_or_house: params[:user][:home][:apt_or_house], num_of_rooms: params[:user][:home][:num_of_rooms], num_of_occupants: params[:user][:home][:num_of_occupants], kids: params[:user][:home][:kids], pets: params[:user][:home][:pets])
+        @user.home_id = @home.id
+        @user.save
       else
         @job = Job.find(@user.job_id)
         @job.update(salary: params[:user][:job][:salary], num_hours_at_work: params[:user][:job][:num_hours_at_work])
+        @home = Home.find(@user.home_id)
+        @home.update(city_or_suburb: params[:user][:home][:city_or_suburb], apt_or_house: params[:user][:home][:apt_or_house], num_of_rooms: params[:user][:home][:num_of_rooms], num_of_occupants: params[:user][:home][:num_of_occupants], kids: params[:user][:home][:kids], pets: params[:user][:home][:pets])
       end
-      if !@user.home_id
-        @home =
+
       redirect_to user_dogs_path(@user)
-      end
+
 
   end
 

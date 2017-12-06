@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   def assign_job_points
     points = 0
-    x = params[:user][:job][:salary]
+    x = Job.find(self.job_id).salary
     case x
     when x < 25000
       points += 1
@@ -17,9 +17,9 @@ class User < ApplicationRecord
     else
       points += 3
     end
-    y = params[:user][:job][:num_hours_at_work]
+    y = Job.find(self.job_id).num_hours_at_work
     case y
-    when if y < 7
+    when y < 7
       points += 3
     else
       points -= 3
@@ -28,35 +28,45 @@ class User < ApplicationRecord
   end
 
   def assign_home_points #to be edited
-    points =
-    if params[:user][:home][:type].downcase == "apartment"
+    points = assign_job_points
+    x = Home.find(self.home_id)
+    case x
+    when x.apt_or_house.downcase == "apartment"
       points += 2
     else
       points += 4
     end
-    if params[:user][:home][:location].downcase == "suburb"
+    y = Home.find(self.home_id)
+    case y
+    when y.location.downcase == "suburb"
       points += 4
     else
       points += 2
     end
-    if params[:user][:home][:num_of_rooms] < 2
+    z = Home.find(self.home_id)
+   case z
+   when z.num_of_rooms < 2
       points += 1
     else
       points += 2
     end
-    if params[:user][:home][:num_of_occupants] < 2
+    a = Home.find(self.home_id)
+   case a
+   when a.num_of_occupants < 2
       points += 1
     else
       points += 2
     end
-
-    if params[:user][:home][:kids] == false
+    b = Home.find(self.home_id)
+   case b
+   when b.kids == false
       points += 1
     else
       points += 2
     end
-
-    if params[:user][:home][:pets] == false
+    c = Home.find(self.home_id)
+   case c
+   when c.pets == false
       points += 1
     else
       points += 2
@@ -70,7 +80,7 @@ class User < ApplicationRecord
 
     elsif (8 < self.assign_home_points) && (self.assign_home_points < 14)
       Dog.where("(size = ? or size = ?) and (barking_level = ? or barking_level = ?)  and (energy_level = ? or energy_level = ?)", 's', 'm', 1, 2, 'Very active','Somewhat active')
-      
+
     elsif (14 < self.assign_home_points) && (self.assign_home_points < 20)
       Dog.where("(energy_level = ? or energy_level = ?) and children_friendly =? ", 'Very active','Somewhat active', true)
     end

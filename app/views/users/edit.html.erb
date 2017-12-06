@@ -6,8 +6,8 @@
 <p> Salary: <%= number_field_tag 'user[job][salary]' %> </p>
 <p> Work Hours: <%= number_field_tag 'user[job][num_hours_at_work]' %> </p>
 <h2>Home Info</h2>
-<p> Location (city | suburb): <%= text_field_tag 'user[home][location]' %> </p>
-<p> Type (apartment | house): <%= text_field_tag 'user[home][type]' %> </p>
+<p> Location (city | suburb): <%= text_field_tag 'user[home][city_or_suburb]' %> </p>
+<p> Type (apartment | house): <%= text_field_tag 'user[home][apt_or_house]' %> </p>
 <p> Number of Rooms: <%= number_field_tag 'user[home][num_of_rooms]' %></p>
 <p> Number of Occupants: <%= number_field_tag 'user[home][num_of_occupants]' %></p>
 <p> Any children? (check if yes): <%= check_box_tag 'user[home][kids]', true %></p>
