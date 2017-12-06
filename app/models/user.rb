@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :user_dogs
   has_many :dogs, through: :user_dogs
 
-  validates :username, uni
+  validates :username, uniqueness: true
 
   def assign_job_points
     points = 0

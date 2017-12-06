@@ -22,12 +22,11 @@ class UsersController < ApplicationController
   end
 
   def show
-
-    if params[:user][:job][:salary]
+    if !User.find(params[:id])[:dogs].empty?
+      @user = User.find(params[:id])
+    elsif User.find(params[:id])[:job_id]
      @user = User.find(params[:id]) #later will be sessions
      @filtered = @user.get_list_of_dogs(params[:user][:salary], params[:user][:type])
-    else
-      @user = User.find(params[:id])
     end
 
   end
@@ -38,7 +37,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    byebug
+    # byebug
     if params[:user][:dogs].empty?
       @user = User.find(params[:id])
       @user.dogs << params[:dogs]

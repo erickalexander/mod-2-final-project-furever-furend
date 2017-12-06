@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users, only: [:create, :show]
   resources :jobs
   resources :homes
+  resources :dogs
 
   get "signup", to: "users#new", as: 'signup'
   get "/signin", to: "sessions#new", as: 'signin'

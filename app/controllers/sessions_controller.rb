@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 
       session[:user_id] = user.id
       flash[:message] = "Welcome #{user.username}!"
-      redirect_to edit_user_path(user)
+      redirect_to user_path(user)
     else
       flash[:message] = "Wrong username and password"
       redirect_to signin_path
