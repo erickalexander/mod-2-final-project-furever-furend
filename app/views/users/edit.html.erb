@@ -1,0 +1,12 @@
+
+<h1>Personal Info <%=@user.username %> </h1>
+<br>
+<%= form_tag("/users/#{@user.id}", method: :put) do %>
+<h2>Job Info</h2>
+<p> Salary: <%= text_field_tag 'user[job][salary]' %> </p>
+<p> Work Hours: <%= text_field_tag 'user[job][num_hours_at_work]' %> </p>
+<h2>Home Info</h2>
+<p> Location (city | suburb): <%= text_field_tag 'user[home][location]' %> </p>
+<p> Type (apartment | house): <%= text_field_tag 'user[home][type]' %> </p>
+<%= submit_tag "Find Your Fur-end!" %>
+<% end %>
