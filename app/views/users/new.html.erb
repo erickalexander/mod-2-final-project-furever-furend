@@ -1,9 +1,13 @@
 <!-- Create username/pw_digest -->
-
+<h1 class = 'jumbotron text-center'>Sign Up</h1>
 <%= form_for @user do |f|%>
-  <%=f.label :username  %>
-  <%=f.text_field :username%>
-  <%=f.label :password  %>
-  <%=f.text_field :password_digest%>
-  <%=f.submit%>
+  <p>
+    <%= f.label :username %>
+    <%= f.text_field(:username, {:class => 'form-control', :placeholder => "Create a Username"})%>
+  </p>
+  <p>
+    <%= f.label :password  %>
+    <%= f.password_field(:password_digest , {:class => 'form-control', :placeholder => "Create a Password" })%>
+  </p>
+  <%= f.submit({:class => 'btn btn-primary'}) %>
 <% end %>

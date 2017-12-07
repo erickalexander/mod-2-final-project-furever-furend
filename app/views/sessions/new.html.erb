@@ -1,7 +1,14 @@
+<h1 class = 'jumbotron text-center'>Login Page</h1>
 <%= form_tag sessions_path do %>
-  <%= label_tag :username %>
-  <%= text_field_tag :username %>
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
-  <%= submit_tag "Sign in" %>
+    <p>
+      <%= label_tag :username %>
+      <%= text_field_tag :username, '', class: 'form-control', placeholder: "Enter your Username" %>
+    </p>
+    <p>
+      <%= label_tag :password %>
+      <%= password_field_tag :password, '', class: 'form-control', placeholder: "Enter your Password" %>
+    </p>
+
+
+  <%= submit_tag "Sign in",  class: 'btn btn-primary' %>
 <% end %>
