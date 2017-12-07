@@ -21,7 +21,7 @@ h2{
 .navbar-brand {
     position: relative;
     background: url(paw_1.png);
-    width: 170px;
+    width: 200px;
     left: 10px;
     background-size: contain;
     background-repeat: no-repeat;
@@ -68,4 +68,12 @@ h2{
 .center_div{
     margin: 0 auto;
     width: 40% /* value of your choice which suits your alignment */
+}
+.center_div_info{
+    width: 40% /* value of your choice which suits your alignment */
+
+}
+
+.move_left{
+  margin: 0;
 }

@@ -1,16 +1,30 @@
+<div class="move_left">
+  <h1>Enter Personal Info <%=@user.username %> </h1>
+  <div class="center_div_info">
+    <%= form_tag("/users/#{@user.id}", method: :put) do %>
+    <h2>Job Info</h2>
+    <%= label_tag 'salary' %> <br>
+    <p> <%= number_field_tag 'user[job][salary]', @user.job ? @user.job.salary : "", class: 'form-control' %> </p>
+    <%= label_tag 'Work Hours' %> <br>
+    <p> <%= number_field_tag 'user[job][num_hours_at_work]', @user.job ? @user.job.num_hours_at_work : "", class: 'form-control' %> </p>
+    <h2>Home Info</h2>
+    <%= label_tag 'Location (city | suburb)' %> <br>
+    <p> <%= text_field_tag 'user[home][city_or_suburb]', @user.home ? @user.home.city_or_suburb : "", class: 'form-control' %> </p>
+    <%= label_tag 'Type (apartment | house)' %> <br>
+    <p> <%= text_field_tag 'user[home][apt_or_house]', @user.home ? @user.home.apt_or_house : "", class: 'form-control' %> </p>
+    <%= label_tag 'Number of Rooms' %> <br>
+    <p> <%= number_field_tag 'user[home][num_of_rooms]', @user.home ? @user.home.num_of_rooms : "", class: 'form-control' %></p>
+    <%= label_tag 'Number of Occupants' %> <br>
+    <p> <%= number_field_tag 'user[home][num_of_occupants]', @user.home ? @user.home.num_of_occupants : "", class: 'form-control' %></p>
+    <%= label_tag 'Any Children? (check if yes):' %>
+    <%= check_box_tag 'user[home][kids]', true %></p>
+    <%= label_tag 'Any Pets? (check if yes):' %>
+    <%= check_box_tag 'user[home][pets]', true %> </p>
+    <%= submit_tag "Find Your Fur-end!", class: 'btn btn-primary' %>
+    <% end %>
 
-<h1>Enter Personal Info <%=@user.username %> </h1>
-<br>
-<%= form_tag("/users/#{@user.id}", method: :put) do %>
-<h2>Job Info</h2>
-<p> Salary: <%= number_field_tag 'user[job][salary]', @user.job ? @user.job.salary : "" %> </p>
-<p> Work Hours: <%= number_field_tag 'user[job][num_hours_at_work]', @user.job ? @user.job.num_hours_at_work : "" %> </p>
-<h2>Home Info</h2>
-<p> Location (city | suburb): <%= text_field_tag 'user[home][city_or_suburb]', @user.home ? @user.home.city_or_suburb %> </p>
-<p> Type (apartment | house): <%= text_field_tag 'user[home][apt_or_house]', @user.home ? @user.home.apt_or_house %> </p>
-<p> Number of Rooms: <%= number_field_tag 'user[home][num_of_rooms]', @user.home ? @user.home.num_of_rooms %></p>
-<p> Number of Occupants: <%= number_field_tag 'user[home][num_of_occupants]', @user.home ? @user.home.num_of_occupants %></p>
-<p> Any children? (check if yes): <%= check_box_tag 'user[home][kids]', true %></p>
-<p> Any pets? (check if yes): <%= check_box_tag 'user[home][pets]', true %> </p>
-<%= submit_tag "Find Your Fur-end!" %>
-<% end %>
+  </div>
+</div>
+
+
+<img src="https://goo.gl/AQYuCN" id="bg" alt="dog_home">

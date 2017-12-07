@@ -16,11 +16,20 @@
           <a class="navbar-brand" href="#"></a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "Sign Up", signup_path %></li>
-          <li><%= link_to "Log In", signin_path %></li>
+          <% if logged_in? %>
+            <li><%= link_to "Sign Out", signout_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Sign Up", signup_path %></li>
+            <li><%= link_to "Sign in", signin_path %></li>
+          <% end %>
+          
+          <% flash.each do |key, value| %>
+            <em><%= value %></em>
+          <% end %>
+
         </ul>
       </div>
-  </nav>
+    </nav>
 
     <div class="container">
       <%= yield %>

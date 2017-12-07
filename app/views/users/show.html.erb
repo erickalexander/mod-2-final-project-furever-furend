@@ -4,8 +4,8 @@
 <h1>Your list of saved dogs:</h1>
 <h3>You have <%=@user.dogs.count%> saved dogs</h3>
   <%@user.dogs.each do |dog|%>
-  <figure>
-    <img src='<%=dog.link%>' alt="<%=dog.breed%>" style="max-width: 20%; height: auto;">
+  <figure class= 'col-sm-4'>
+    <img src='<%=dog.link%>' alt="<%=dog.breed%>" style="max-width: 50%; height: auto;">
     <figcaption><%=link_to dog.breed, dog_path(dog)%></figcaption>
 
   </figure>

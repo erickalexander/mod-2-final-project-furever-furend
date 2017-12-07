@@ -3,7 +3,7 @@
 <h3>There are <%=@filtered.count%> furends we recommend for you!</h3>
 
   <%@filtered.each do |dog|%>
-    <figure>
+    <figure class= 'col-sm-5'>
       <img src="<%=dog.link%>" alt="<%=dog.breed%>" style="max-width: 20%; height: auto;">
       <figcaption><%=link_to dog.breed, dog_path(dog)%></figcaption>
     </figure>
@@ -14,7 +14,7 @@
 <br>
   <h3>Add to your saved dogs:</h3>
   <%= form_tag("/users/#{@user.id}/dogs", method: :patch) do %>
-    <%=collection_check_boxes :user, :dogs, @filtered, :id, :breed%>
-    <%= submit_tag "Add Dog" %>
+    <%=collection_check_boxes :user, :dogs, @filtered, :id, :breed %>
+    <%= submit_tag "Add Dogs", class: 'btn btn-primary' %>
   <%end%><br>
 <%end%>
