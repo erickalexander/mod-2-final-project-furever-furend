@@ -4,7 +4,7 @@
 
   <%@filtered.each do |dog|%>
     <figure>
-      <img src="<%=dog.link%>" alt="<%=dog.breed%>">
+      <img src="<%=dog.link%>" alt="<%=dog.breed%>" style="max-width: 20%; height: auto;">
       <figcaption><%=link_to dog.breed, dog_path(dog)%></figcaption>
     </figure>
   <% end %>
