@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
+RSpec.describe Job, type: :model do
 
   let(:home) do
     Home.create(
@@ -10,9 +10,10 @@ RSpec.describe User, type: :model do
       num_of_occupants: 2,
       kids: true,
       pets: false,
-      user_id: :kat.id
+      user_id: kat.id
     )
   end
+
 
   let(:jobs) do
     Job.create(
@@ -23,14 +24,12 @@ RSpec.describe User, type: :model do
 
   let(:kat) {User.create(username: 'kpop', password_digest: 'beef')}
 
-  it 'has a username' do
-    expect(kat.username).to eq('kpop')
+  it 'hours at work is an integer' do
+    expect(jobs.num_hours_at_work).to eq(6)
   end
 
-  it 'has a password' do
-    expect(kat.password_digest).to eq('beef')
+  it 'salary is an integer' do
+    expect(jobs.salary).to eq(30000)
   end
-
-
 
 end
