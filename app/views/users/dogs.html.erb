@@ -12,6 +12,6 @@
   <h3>Add to your saved dogs:</h3>
   <%= form_tag("/users/#{@user.id}/dogs", method: :patch) do %>
     <%=collection_check_boxes :user, :dogs, @filtered, :id, :breed%>
-    <%= submit_tag "Add Dogs" %>
+    <%= submit_tag "Add Dog" %>
   <%end%><br>
 <%end%>

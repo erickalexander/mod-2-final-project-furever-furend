@@ -7,6 +7,10 @@ class User < ApplicationRecord
 
   validates :username, uniqueness: true
 
+  def job
+    Job.find_by(id: self.job_id)
+  end
+
   def assign_job_points
     points = 0
     x = Job.find(self.job_id).salary
