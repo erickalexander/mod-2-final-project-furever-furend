@@ -2,6 +2,7 @@
   <p>You have no saved dogs yet!</p>
 <%else%>
 <h1>Your list of saved dogs:</h1>
+<h3>You have <%=@user.dogs.count%> saved dogs</h3>
 <ul>
   <%@user.dogs.each do |dog|%>
 
@@ -11,6 +12,6 @@
 <%end%>
 
 <form>
-  <button formaction="/users/<%=@user.id%>/edit">Update Personal Info</button>
+  <button class="btn btn-dark" formaction="/users/<%=@user.id%>/edit">Update Personal Info</button>
 </form>
 <!--  -->

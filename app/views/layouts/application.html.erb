@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mod2FinalProjectFureverFurend</title>
+    <title>Furever Furend</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+
+    <% if logged_in? %>
+      <%= link_to "Sign Out", signout_path, method: :delete %>
+    <% else %>
+      <%= link_to "Sign in", signin_path %>
+    <% end %>
+
+
+    <% flash.each do |key, value| %>
+      <em><%= value %></em>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
