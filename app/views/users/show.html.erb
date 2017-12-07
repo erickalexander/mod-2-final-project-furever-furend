@@ -3,12 +3,15 @@
 <%else%>
 <h1>Your list of saved dogs:</h1>
 <h3>You have <%=@user.dogs.count%> saved dogs</h3>
-<ul>
   <%@user.dogs.each do |dog|%>
+  <figure>
+    <img src='<%=dog.link%>' alt="<%=dog.breed%>" style="max-width: 20%; height: auto;">
+    <figcaption><%=link_to dog.breed, dog_path(dog)%></figcaption>
 
-  <li><%=link_to dog.breed, dog_path(dog)%></li>
+  </figure>
+
   <% end %>
-</ul>
+
 <%end%>
 
 <form action="/users/<%=@user.id%>/edit" method='get'>
