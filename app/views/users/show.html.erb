@@ -10,7 +10,7 @@
 </ul>
 <%end%>
 
-<form>
-  <button formaction="/users/<%=@user.id%>/edit">Update Personal Info</button>
+<form action="/users/<%=@user.id%>/edit" method='get'>
+  <button type='submit'>Update Personal Info</button>
 </form>
 <!--  -->

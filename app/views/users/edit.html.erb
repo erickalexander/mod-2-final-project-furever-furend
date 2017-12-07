@@ -3,7 +3,7 @@
 <br>
 <%= form_tag("/users/#{@user.id}", method: :put) do %>
 <h2>Job Info</h2>
-<p> Salary: <%= number_field_tag 'user[job][salary]' %> </p>
+<p> Salary: <%= number_field_tag 'user[job][salary]', @user.job ? @user.job.salary : "" %> </p>
 <p> Work Hours: <%= number_field_tag 'user[job][num_hours_at_work]' %> </p>
 <h2>Home Info</h2>
 <p> Location (city | suburb): <%= text_field_tag 'user[home][city_or_suburb]' %> </p>
