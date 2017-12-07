@@ -1,12 +1,71 @@
-.bg {
-    /* The image used */
-    background-image: url("https://images.unsplash.com/photo-1444212477490-ca407925329e?auto=format&fit=crop&w=800&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
+/* Custom CSS for home image  */
+.container{
+  padding-top: 80px;
+}
 
-    /* Full height */
-    height: 100%;
+#bg {
+  position: absolute;
+  top: 0;
+  left: 0;
 
-    /* Center and scale the image nicely */
-    background-position: center;
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+
+h2{
+  color: white;
+}
+
+.navbar-brand {
+    position: relative;
+    background: url(paw_1.png);
+    width: 170px;
+    left: 10px;
+    background-size: contain;
     background-repeat: no-repeat;
-    background-size: cover;
+
+}
+
+/*-------------Custom Navbar-----------------*/
+
+.navbar-custom {
+    background-color:whitesmoke;
+    color: black;
+
+}
+
+.navbar-custom .navbar-nav > li > a {
+    color: black;
+}
+
+.navbar-custom .navbar-nav > .active > a {
+    color: #ffffff;
+    background-color:transparent;
+}
+
+.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .navbar-nav > li > a:focus,
+.navbar-custom .navbar-nav > .active > a:hover,
+.navbar-custom .navbar-nav > .active > a:focus,
+.navbar-custom .navbar-nav > .open >a {
+    text-decoration: none;
+    background-color: darkgrey;
+}
+
+.navbar-custom .navbar-brand {
+    color:#eeeeee;
+}
+.navbar-custom .navbar-toggle {
+    background-color:#eeeeee;
+}
+.navbar-custom .icon-bar {
+    background-color:#33aa33;
+}
+/*---------------end of nav custom--------------*/
+
+.center_div{
+    margin: 0 auto;
+    width: 40% /* value of your choice which suits your alignment */
 }
