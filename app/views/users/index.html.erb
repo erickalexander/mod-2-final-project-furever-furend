@@ -1,8 +1,19 @@
-<h1 class='text-center'>Welcome</h1>
-<h2 class = 'text-center'>Sign up or Login to meet your furever</h2>
-<div class="text-center">
-  <%= image_tag "paw_1.png" %>
+<br>
+<br>
+<h1 style="font-family:verdana;" class = 'text-center'>Sign Up and Find Your Furever Friend!</h1>
+<br>
+<div class="center_div">
+  <%= form_for @user, url: users_path, method: :post  do |f|%>
+    <%=f.label :username  %><br>
+    <%=f.text_field(:username, {:class => 'form-control'})%><br>
+    <%=f.label :password  %><br>
+    <%=f.password_field(:password, {:class => 'form-control'})%><br>
+    <%=f.label :confirm_password  %><br>
+    <%=f.password_field(:password_confirmation, {:class => 'form-control'})%><br>
+    <%=f.submit({:class => 'btn btn-secondary'})%>
+  <% end %>
 </div>
+
 
 
 <img src="https://goo.gl/Fvy8ve" id="bg" alt="dog_home">

@@ -14,6 +14,24 @@
 
 <%end%>
 
+<h4>Your Current Profile:</h4>
+
+<ul>
+  <label>Salary:</label>
+  <li><%=@user.job.salary%></li>
+  <label>Work Hours:</label>
+  <li><%=@user.job.num_hours_at_work%></li>
+  <br>
+  <label>Home Location:</label>
+  <li><%=@user.home.city_or_suburb%></li>
+  <label>Home Type:</label>
+  <li><%=@user.home.apt_or_house%></li>
+  <label>Number of Rooms:</label>
+  <li><%=@user.home.num_of_rooms%></li>
+  <label>Number of Occupants:</label>
+  <li><%=@user.home.num_of_occupants%></li>
+</ul>
+
 <form action="/users/<%=@user.id%>/edit" method='get'>
   <button type='submit'>Update Personal Info</button>
 </form>
