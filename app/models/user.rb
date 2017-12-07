@@ -11,6 +11,10 @@ class User < ApplicationRecord
     Job.find_by(id: self.job_id)
   end
 
+  def home
+    Home.find_by(id: self.home_id)
+  end
+
   def assign_job_points
     points = 0
     x = Job.find(self.job_id).salary
