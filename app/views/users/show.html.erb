@@ -1,9 +1,13 @@
 <%if @user.dogs.count == 0%>
   <p>You have no saved dogs yet!</p>
 <%else%>
+<h1>Your list of saved dogs:</h1>
+<ul>
   <%@user.dogs.each do |dog|%>
-    <%=link_to dog.breed, dog_path(dog)%>
+
+  <li><%=link_to dog.breed, dog_path(dog)%></li>
   <% end %>
+</ul>
 <%end%>
 
 <form>

@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_one :home
   has_many :user_dogs
   has_many :dogs, through: :user_dogs
+  has_secure_password
 
   validates :username, uniqueness: true
 

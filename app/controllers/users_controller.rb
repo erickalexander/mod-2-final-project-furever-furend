@@ -36,9 +36,14 @@ class UsersController < ApplicationController
   end
 
   def assign_dogs
+    # byebug
     @user = User.find(params[:id])
-
-    @user.dogs << params[:dogs]
+    # byebug
+    params[:user][:dogs].select{|x| !x.empty?}.each do |dog_id|
+      if !@user.dogs.include?(Dog.find(dog_id.to_i))
+        @user.dogs << Dog.find(dog_id.to_i)
+      end
+    end
     redirect_to user_path(@user)
   end
 
