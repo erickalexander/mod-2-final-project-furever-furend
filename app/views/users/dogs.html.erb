@@ -1,7 +1,11 @@
 <% if @filtered %>
+<h1>List of potential Fur-ends!</h1>
+<ul>
   <%@filtered.each do |dog|%>
-    <%=dog.breed%>
+    <li><%=link_to dog.breed, dog_path(dog)%></li>
   <% end %>
+</ul>
+
 <!-- user/:id/:edit -->
 <br>
   <%= form_tag("/users/#{@user.id}/dogs", method: :patch) do %>
