@@ -49,7 +49,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    byebug
+    # byebug
     @user = User.find(params[:id])
   end
 
