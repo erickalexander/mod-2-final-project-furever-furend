@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def new
+    # byebug
     @user = User.new
   end
 
@@ -48,6 +49,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    byebug
     @user = User.find(params[:id])
   end
 

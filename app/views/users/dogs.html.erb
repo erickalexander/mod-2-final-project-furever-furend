@@ -1,11 +1,14 @@
 <% if @filtered %>
 <h1>List of potential Fur-ends!</h1>
 <h3>There are <%=@filtered.count%> furends we recommend for you!</h3>
-<ul>
+
   <%@filtered.each do |dog|%>
-    <li><%=link_to dog.breed, dog_path(dog)%></li>
+    <figure>
+      <%=link_to dog.breed, dog_path(dog)%>
+      <figcaption><%=link_to dog.breed, dog_path(dog)%></figcaption>
+    </figure>
   <% end %>
-</ul>
+
 
 <!-- user/:id/:edit -->
 <br>
