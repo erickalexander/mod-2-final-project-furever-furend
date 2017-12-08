@@ -19,9 +19,9 @@
   <!-- user/:id/:edit -->
   <div class="col-sm-6 pad_left">
   <div class="col-sm-2">
-    <h3>Add Dogs:</h3>
+    <h3>Add Dogs</h3>
     <div class="form">
-      <%= form_tag("/users/#{@user.id}/dogs", method: :patch) do %>
+      <%= form_tag("/users/#{@user.id}/dogs", method: :patch, class: 'checkbox') do %>
 
         <%=collection_check_boxes :user, :dogs, @filtered, :id, :breed %> <br>
 
