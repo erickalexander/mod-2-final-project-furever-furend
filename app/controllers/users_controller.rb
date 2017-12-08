@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    # byebug
+
     @user = User.new
   end
 
@@ -21,7 +21,7 @@ byebug
       flash[:success] = "Password must be a minimum of 6 characters"
       render 'new'
     end
-    # byebug
+
   end
 
 
@@ -31,7 +31,7 @@ byebug
 
   def dogs
     @user = User.find(params[:id])
-    # byebug
+
     if !(@user.job_id.nil?)
       #later will be sessions
      @filtered = @user.get_list_of_dogs
@@ -39,9 +39,9 @@ byebug
   end
 
   def assign_dogs
-    # byebug
+
     @user = User.find(params[:id])
-    # byebug
+
     params[:user][:dogs].select{|x| !x.empty?}.each do |dog_id|
       if !@user.dogs.include?(Dog.find(dog_id.to_i))
         @user.dogs << Dog.find(dog_id.to_i)
@@ -51,12 +51,11 @@ byebug
   end
 
   def edit
-    # byebug
+
     @user = User.find(params[:id])
   end
 
-  def update
-    byebug
+  def update 
     @user = User.find(params[:id])
 
       if @user.job_id.nil?
@@ -64,12 +63,12 @@ byebug
         @user.job_id = @job.id
         @user.save
       else
-        # byebug
+
         @job = Job.find(@user.job_id)
         @job.update(salary: params[:user][:job][:salary], num_hours_at_work: params[:user][:job][:num_hours_at_work])
       end
       if  @user.home_id.nil? #WHY ADD USERID
-        # byebug
+
         @home = Home.create(city_or_suburb: params[:user][:home][:city_or_suburb], apt_or_house: params[:user][:home][:apt_or_house], num_of_rooms: params[:user][:home][:num_of_rooms], num_of_occupants: params[:user][:home][:num_of_occupants], kids: params[:user][:home][:kids], pets: params[:user][:home][:pets], user_id: @user.id)
         @user.home_id = @home.id
         @user.save

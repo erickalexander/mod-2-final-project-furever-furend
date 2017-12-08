@@ -1,15 +1,18 @@
-<h1><%=@dog.breed%></h1>
-<img src="<%=@dog.link%>" alt="<%=@dog.breed%>" style="max-width: 30%; height: auto;">
-<br>
-<ul>
-  <label>Personality:</label>
-  <li><%=@dog.personality%></li>
-  <label>Energy Level:</label>
-  <li><%=@dog.energy_level%></li>
-  <label>Size:</label>
-  <li><%=@dog.size%></li>
-  <label>Barking Level (1: Quiet - 3: Intermittent Barking):</label>
-  <li><%=@dog.barking_level%></li>
-</ul>
+<div class="center_div">
+  <h1 class="text-center"><%=@dog.breed%></h1>
+  <img src="<%=@dog.link%>" alt="<%=@dog.breed%>" style="max-width: 100%; height: auto;">
+  <br>
+  <ul class="text-center">
+    <label>Personality:</label>
+    <li><%=@dog.personality%></li>
+    <label>Energy Level:</label>
+    <li><%=@dog.energy_level%></li>
+    <label>Size:</label>
+    <li><%=@dog.size%></li>
+    <label>Barking Level (1: Quiet - 3: Intermittent Barking):</label>
+    <li><%=@dog.barking_level%></li>
+  </ul>
+</div>
+
 
 <img src="https://goo.gl/D4iUjt" id="bg" alt="dog_home">
