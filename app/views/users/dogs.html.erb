@@ -6,9 +6,9 @@
     <h3>There are <%=@filtered.count%> furends we recommend for you!</h3>
 
       <%@filtered.each do |dog|%>
-        <div class="card">
+        <div class="col-sm-5">
 
-            <img src="<%=dog.link%>" alt="<%=dog.breed%>" style="max-width: 60%; height: auto;">
+            <img src="<%=dog.link%>" alt="<%=dog.breed%>" style="max-width: 80%; height: auto;">
             <p class="card-text"><%=link_to dog.breed, dog_path(dog)%></p>
 
         </div>
@@ -22,12 +22,12 @@
   <div class="col-sm-2"> </div>
   <div class="col-sm-4">
     <h3>Add to your saved dogs:</h3>
-    <form role="form form-group">
+    <div class="form">
       <%= form_tag("/users/#{@user.id}/dogs", method: :patch) do %>
-        <%=collection_check_boxes :user, :dogs, @filtered, :id, :breed, class: 'checkbox-inline' %>
+        <%=collection_check_boxes :user, :dogs, @filtered, :id, :breed %> <br>
         <%= submit_tag "Add Dogs", class: 'btn btn-primary' %>
       <%end%><br>
-    </form>
+    </div>
   </div>
 </div>
 

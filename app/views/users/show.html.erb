@@ -6,11 +6,11 @@
     <h1>Your list of saved dogs:</h1>
     <h3>You have <%=@user.dogs.count%> saved dogs</h3>
       <%@user.dogs.each do |dog|%>
-      <figure>
-        <img src='<%=dog.link%>' alt="<%=dog.breed%>" style="max-width: 30%; height: auto;">
+      <div class = 'col-sm-6'>
+        <img src='<%=dog.link%>' alt="<%=dog.breed%>" style="max-width: 80%; height: auto;">
         <figcaption><%=link_to dog.breed, dog_path(dog)%></figcaption>
 
-      </figure>
+      </div>
 
       <% end %>
 
