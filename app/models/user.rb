@@ -84,6 +84,7 @@ class User < ApplicationRecord
   end
 
   def get_list_of_dogs
+    byebug
     if (1 <= self.assign_home_points) && (self.assign_home_points <= 8)
       Dog.where("size = ? and (barking_level = ? or barking_level = ?)  and (energy_level = ? or energy_level = ?)", 's', 1, 2, 'Not very active','Somewhat active')
 
