@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   def dogs
     @user = User.find(params[:id])
     if !@user[:job_id].nil?
-      byebug
+      # byebug
       #later will be sessions
      @filtered = @user.get_list_of_dogs
     end
