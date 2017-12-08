@@ -2,9 +2,14 @@
 
 body {
 
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
 
 }
+
+/*h1{
+
+  font-weight: bold;
+}*/
 
 /*@font-face{
   font-family:"simplifica";
@@ -28,10 +33,12 @@ body{
   min-width: 100%;
   min-height: 100%;
   z-index: -1;
+
 }
 
 
 .navbar-brand {
+
     position: relative;
     background: url(paw_1.png);
     width: 300px;
@@ -94,6 +101,8 @@ body{
 
 .center_div_index{
   padding-top: 50px;
+  border-radius:30px;
+  border-color: black;
 }
 
 .move_left{
