@@ -4,8 +4,10 @@
     <title>Furever Furend</title>
 
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag 'custom.css' %>
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn+SC" rel="stylesheet">
     <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' %>
+    <%= stylesheet_link_tag 'custom.css' %>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -18,11 +20,12 @@
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
             <li><%= link_to "Sign Out", signout_path, method: :delete %></li>
+            <li><%= link_to "My Profile", user_path(@user) %></li>
           <% else %>
             <li><%= link_to "Sign Up", signup_path %></li>
             <li><%= link_to "Sign in", signin_path %></li>
           <% end %>
-          
+
           <% flash.each do |key, value| %>
             <em><%= value %></em>
           <% end %>

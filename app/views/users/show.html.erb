@@ -1,38 +1,60 @@
-<%if @user.dogs.count == 0%>
-  <p>You have no saved dogs yet!</p>
-<%else%>
-<h1>Your list of saved dogs:</h1>
-<h3>You have <%=@user.dogs.count%> saved dogs</h3>
-  <%@user.dogs.each do |dog|%>
-  <figure class= 'col-sm-4'>
-    <img src='<%=dog.link%>' alt="<%=dog.breed%>" style="max-width: 50%; height: auto;">
-    <figcaption><%=link_to dog.breed, dog_path(dog)%></figcaption>
+<div class="row">
+  <div class="col-sm-4">
+    <%if @user.dogs.count == 0%>
+      <p>You have no saved dogs yet!</p>
+    <%else%>
+    <h1>Your list of saved dogs:</h1>
+    <h3>You have <%=@user.dogs.count%> saved dogs</h3>
+      <%@user.dogs.each do |dog|%>
+      <figure>
+        <img src='<%=dog.link%>' alt="<%=dog.breed%>" style="max-width: 30%; height: auto;">
+        <figcaption><%=link_to dog.breed, dog_path(dog)%></figcaption>
 
-  </figure>
+      </figure>
 
-  <% end %>
+      <% end %>
 
-<%end%>
+    <%end%>
+  </div>
+  <div class="col-sm-5"></div>
+  <div class="col-sm-3">
+    <div class="move_left">
+      <h2 class='text-center'>Your Current Profile</h2>
+      <ul>
+        <%= label_tag 'Salary' %> <br>
+        <li><%=@user.job.salary%></li>
+        <%= label_tag 'Work Hours' %> <br>
+        <li><%=@user.job.num_hours_at_work%></li>
+        <%= label_tag 'Home Location:' %> <br>
+        <li><%=@user.home.city_or_suburb%></li>
+        <%= label_tag 'Home Type' %> <br>
+        <li><%=@user.home.apt_or_house%></li>
+        <%= label_tag 'Number of Rooms' %> <br>
+        <li><%=@user.home.num_of_rooms%></li>
+        <%= label_tag 'Number of Occupants' %> <br>
+        <li><%=@user.home.num_of_occupants%></li>
+      </ul>
+    <div class="move_btn_right">
+      <form action="/users/<%=@user.id%>/edit" method='get'>
+        <button type='submit' class='btn btn-default'>Update Personal Info</button>
+      </form>
+    </div>
 
-<h4>Your Current Profile:</h4>
+    </div>
 
-<ul>
-  <label>Salary:</label>
-  <li><%=@user.job.salary%></li>
-  <label>Work Hours:</label>
-  <li><%=@user.job.num_hours_at_work%></li>
-  <br>
-  <label>Home Location:</label>
-  <li><%=@user.home.city_or_suburb%></li>
-  <label>Home Type:</label>
-  <li><%=@user.home.apt_or_house%></li>
-  <label>Number of Rooms:</label>
-  <li><%=@user.home.num_of_rooms%></li>
-  <label>Number of Occupants:</label>
-  <li><%=@user.home.num_of_occupants%></li>
-</ul>
 
-<form action="/users/<%=@user.id%>/edit" method='get'>
-  <button type='submit'>Update Personal Info</button>
-</form>
+
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+<img src="https://goo.gl/AQYuCN" id="bg" alt="dog_home">
+
 <!--  -->
