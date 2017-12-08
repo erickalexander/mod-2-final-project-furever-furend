@@ -128,3 +128,7 @@ body{
 ul {
   list-style-type: none;
 }
+
+.pad_left{
+  padding-left: 300px;
+}
