@@ -11,6 +11,7 @@
           <figcaption><%=link_to dog.breed, dog_path(dog)%></figcaption>
         </figure>
       <% end %>
+    <%end%>
   </div>
 
 
@@ -18,10 +19,11 @@
   <div class="col-sm-2"> </div>
   <div class="col-sm-4">
     <h3>Add to your saved dogs:</h3>
+    <form role="form form-group">
       <%= form_tag("/users/#{@user.id}/dogs", method: :patch) do %>
-        <%=collection_check_boxes :user, :dogs, @filtered, :id, :breed %>
+        <%=collection_check_boxes :user, :dogs, @filtered, :id, :breed, class: 'checkbox-inline' %>
         <%= submit_tag "Add Dogs", class: 'btn btn-primary' %>
       <%end%><br>
-    <%end%>
+    </form>
   </div>
 </div>

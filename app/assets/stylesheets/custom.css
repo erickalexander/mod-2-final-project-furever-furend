@@ -1,17 +1,19 @@
 /* Custom CSS for home image  */
 
-/*body {
-  font-family: 'Vollkorn SC', serif;
-}*/
+body {
 
-@font-face{
+  font-family: 'Open Sans', sans-serif;
+
+}
+
+/*@font-face{
   font-family:"simplifica";
   src:font-url("simplifica.ttf") format("truetype");
 }
 
 body{
   font-family: "simplifica";
-}
+}*/
 
 .container{
   padding-top: 80px;
