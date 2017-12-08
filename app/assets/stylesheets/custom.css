@@ -22,6 +22,13 @@ body{
 
 .container{
   padding-top: 80px;
+  border-color: black;
+  z-index: 1;
+  /*margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 520px;
+  background-color: rgba(211,211,211,0.5);*/
 }
 
 #bg {
@@ -101,8 +108,13 @@ body{
 
 .center_div_index{
   padding-top: 50px;
-  border-radius:30px;
   border-color: black;
+  z-index: 1;
+  margin-top: 100px;
+  margin-left: 100px;
+  margin-right: 100px;
+  height: 520px;
+  background-color: rgba(211,211,211,0.5);
 }
 
 .move_left{

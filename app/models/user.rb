@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_secure_password
 
   validates :username, uniqueness: true
+  validates :password, length: { minimum: 6 }
 
   def job
     Job.find_by(id: self.job_id)
@@ -33,7 +34,9 @@ class User < ApplicationRecord
     else
       points -= 3
     end
+    points = 0 if points < 0
     points
+
   end
 
   def assign_home_points #to be edited

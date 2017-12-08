@@ -1,14 +1,16 @@
-<h1 class = 'text-center'>Login Page</h1>
-<div class="center_div">
-  <%= form_tag sessions_path do %>
-    <%= label_tag :username %> <br>
-    <%= text_field_tag :username, '', class: 'form-control', placeholder: "Enter your Username" %><br>
+<div style="background-color: rgba(211, 211, 211, 0.5); width:50%; margin-left: auto; margin-right: auto; margin-top: auto; height: 250px">
+  <h1 class = 'text-center'>Sign in</h1>
+  <div class="center_div">
+    <%= form_tag sessions_path do %>
+      <%= label_tag :username %> <br>
+      <%= text_field_tag :username, '', class: 'form-control', placeholder: "Enter your Username" %><br>
 
-    <%= label_tag :password %><br>
-    <%= password_field_tag :password, '', class: 'form-control', placeholder: "Enter your Password" %><br>
-    <%= submit_tag "Sign in",  class: 'btn btn-secondary' %>
-  <% end %>
+      <%= label_tag :password %><br>
+      <%= password_field_tag :password, '', class: 'form-control', placeholder: "Enter your Password" %><br>
+      <%= submit_tag "Sign in",  class: 'btn btn-secondary' %>
+    <% end %>
+
+  </div>
 
 </div>
-
 <img src="https://goo.gl/Fvy8ve" id="bg" alt="dog_home">

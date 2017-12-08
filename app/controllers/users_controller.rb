@@ -18,6 +18,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to edit_user_path(@user)
     else
+      flash[:success] = "Password must be a minimum of 6 characters"
       render 'new'
     end
     # byebug
@@ -30,8 +31,8 @@ class UsersController < ApplicationController
 
   def dogs
     @user = User.find(params[:id])
-    # byebug
     if !@user[:job_id].nil?
+      byebug
       #later will be sessions
      @filtered = @user.get_list_of_dogs
     end
