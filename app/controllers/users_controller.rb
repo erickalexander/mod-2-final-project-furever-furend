@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
+byebug
     if @user.valid?
       @user.save
       session[:user_id] = @user.id
@@ -31,8 +31,8 @@ class UsersController < ApplicationController
 
   def dogs
     @user = User.find(params[:id])
-    if !@user[:job_id].nil?
-      # byebug
+    # byebug
+    if !(@user.job_id.nil?)
       #later will be sessions
      @filtered = @user.get_list_of_dogs
     end
@@ -56,7 +56,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    # byebug
+    byebug
     @user = User.find(params[:id])
 
       if @user.job_id.nil?
