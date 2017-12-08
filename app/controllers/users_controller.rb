@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-byebug
+
     if @user.valid?
       @user.save
       session[:user_id] = @user.id
@@ -55,7 +55,7 @@ byebug
     @user = User.find(params[:id])
   end
 
-  def update 
+  def update
     @user = User.find(params[:id])
 
       if @user.job_id.nil?

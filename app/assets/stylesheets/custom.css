@@ -119,6 +119,7 @@ body{
 
 .move_left{
   margin: 0;
+  padding-right: 60px;
 }
 
 .move_btn_right{
