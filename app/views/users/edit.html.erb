@@ -1,5 +1,5 @@
 <div class="move_left">
-  <h1>Enter Personal Info <%=@user.username %> </h1>
+  <h1>Enter Personal Info for <%=@user.username %> </h1>
   <div class="center_div_info">
     <%= form_tag("/users/#{@user.id}", method: :put) do %>
     <h2>Job Info</h2>
