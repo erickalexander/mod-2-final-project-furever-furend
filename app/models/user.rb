@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_secure_password
 
   validates :username, uniqueness: true
-  validates :password, length: { minimum: 6 }
+  validates :password, length: { minimum: 6 }, on: :create
 
   def job
     Job.find_by(id: self.job_id)
