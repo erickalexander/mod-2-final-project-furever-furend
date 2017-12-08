@@ -63,7 +63,7 @@ class UsersController < ApplicationController
         @user.job_id = @job.id
         @user.save
       else
-        byebug
+        # byebug
         @job = Job.find(@user.job_id)
         @job.update(salary: params[:user][:job][:salary], num_hours_at_work: params[:user][:job][:num_hours_at_work])
       end
