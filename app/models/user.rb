@@ -90,7 +90,7 @@ class User < ApplicationRecord
     elsif (8 <= self.assign_home_points) && (self.assign_home_points <= 14)
       Dog.where("(size = ? or size = ?) and (barking_level = ? or barking_level = ?)  and (energy_level = ? or energy_level = ?)", 's', 'm', 1, 2, 'Very active','Somewhat active')
 
-    elsif (14 <= self.assign_home_points) && (self.assign_home_points <= 20)
+    elsif (15 <= self.assign_home_points) && (self.assign_home_points <= 20)
       Dog.where("(energy_level = ? or energy_level = ?) and children_friendly =? ", 'Very active','Somewhat active', true)
     end
   end

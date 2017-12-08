@@ -1,4 +1,18 @@
 /* Custom CSS for home image  */
+
+/*body {
+  font-family: 'Vollkorn SC', serif;
+}*/
+
+@font-face{
+  font-family:"simplifica";
+  src:font-url("simplifica.ttf") format("truetype");
+}
+
+body{
+  font-family: "simplifica";
+}
+
 .container{
   padding-top: 80px;
 }
@@ -14,18 +28,20 @@
   z-index: -1;
 }
 
-h2{
-  color: white;
-}
 
 .navbar-brand {
     position: relative;
     background: url(paw_1.png);
-    width: 200px;
-    left: 10px;
+    width: 300px;
+    left: 5px;
     background-size: contain;
     background-repeat: no-repeat;
 
+}
+
+.move_left{
+
+  padding-left: 30px;
 }
 
 /*-------------Custom Navbar-----------------*/
@@ -80,4 +96,12 @@ h2{
 
 .move_left{
   margin: 0;
+}
+
+.move_btn_right{
+  padding-left: 30px;
+}
+
+ul {
+  list-style-type: none;
 }
