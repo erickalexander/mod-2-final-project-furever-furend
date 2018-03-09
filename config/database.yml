@@ -1,24 +1,49 @@
-
-development:
-  <<: *default
-  database: db/development.sqlite3
+ development:
   adapter: postgresql
+  encoding: utf8
+  database: fureverfurend_development
   pool: 5
-  timeout: 5000
+  username:
+  password:
+
+# <<<<<<< HEAD
+# development:
+#   <<: *default
+#   database: db/development.sqlite3
+#   adapter: postgresql
+#   pool: 5
+#   timeout: 5000
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
-  <<: *default
-  database: db/test.sqlite3
+# test:
+#   <<: *default
+#   database: db/test.sqlite3
+#   adapter: postgresql
+#   pool: 5
+#   timeout: 5000
+#
+# production:
+#   <<: *default
+#   database: db/production.sqlite3
+#   adapter: postgresql
+#   pool: 5
+#   timeout: 5000
+# =======
+test: &TEST
   adapter: postgresql
+  encoding: utf8
+  database: fureverfurend_test
   pool: 5
-  timeout: 5000
+  username:
+  password:
 
 production:
-  <<: *default
-  database: db/production.sqlite3
   adapter: postgresql
+  encoding: utf8
+  database: fureverfurend_production
   pool: 5
-  timeout: 5000
+  username:
+  password:
+# >>>>>>> a72f7eaba7caea01de412b5e47c735f85ee891e7
