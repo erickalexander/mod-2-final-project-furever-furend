@@ -5,11 +5,11 @@
 <div class="center_div">
   <%= form_for @user, url: users_path, method: :post  do |f|%>
     <%=f.label :username  %><br>
-    <%=f.text_field(:username, {:class => 'form-control'})%><br>
+    <%=f.text_field(:username, {:class => 'form-control', placeholder: "Username"})%><br>
     <%=f.label :password  %><br>
-    <%=f.password_field(:password, {:class => 'form-control'})%><br>
+    <%=f.password_field(:password, {:class => 'form-control',placeholder: "Password (minimum 6 characters)"})%><br>
     <%=f.label :confirm_password  %><br>
-    <%=f.password_field(:password_confirmation, {:class => 'form-control'})%><br>
+    <%=f.password_field(:password_confirmation, {:class => 'form-control', placeholder: "Password (minimum 6 characters)"})%><br>
     <%=f.submit({:class => 'btn btn-success'})%>
   <% end %>
 </div>

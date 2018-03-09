@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20171207185411) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "dogs", force: :cascade do |t|
     t.string "personality"
     t.string "energy_level"
@@ -34,7 +37,7 @@ ActiveRecord::Schema.define(version: 20171207185411) do
     t.boolean "pets", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_homes_on_user_id"
   end
 
@@ -47,8 +50,8 @@ ActiveRecord::Schema.define(version: 20171207185411) do
   end
 
   create_table "user_dogs", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "dog_id"
+    t.bigint "user_id"
+    t.bigint "dog_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["dog_id"], name: "index_user_dogs_on_dog_id"
@@ -64,4 +67,7 @@ ActiveRecord::Schema.define(version: 20171207185411) do
     t.integer "home_id"
   end
 
+  add_foreign_key "homes", "users"
+  add_foreign_key "user_dogs", "dogs"
+  add_foreign_key "user_dogs", "users"
 end
