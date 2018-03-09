@@ -3,6 +3,7 @@
   encoding: utf8
   database: fureverfurend_development
   pool: 5
+  timeout: 5000
   username:
   password:
 
@@ -36,6 +37,7 @@ test: &TEST
   encoding: utf8
   database: fureverfurend_test
   pool: 5
+  timeout: 5000
   username:
   password:
 
@@ -44,6 +46,7 @@ production:
   encoding: utf8
   database: fureverfurend_production
   pool: 5
+  timeout: 5000
   username:
   password:
 # >>>>>>> a72f7eaba7caea01de412b5e47c735f85ee891e7
