@@ -1,20 +1,20 @@
-#Furever Furend
+# Furever Furend
 
 
-##Description
+## Description
 
 Algorithm powered dog matching service that suggests dogs based on user lifestyle/profile
 
-##Technologies
+## Technologies
 
 - Ruby on Rails following MVC pattern
 - Bootstrap and custom CSS used in front-end design
 
-##Contributors Guide
+## Contributors Guide
 
 This project adheres to the Open Code of Conduct
 
-##Contributors
+## Contributors
 
 [Ellisa Shim](https://github.com/eshim12)
 [Erick Camacho](https://github.com/erickalexander)
