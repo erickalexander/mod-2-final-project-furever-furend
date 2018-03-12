@@ -1,24 +1,20 @@
-# README
+#Furever Furend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+##Description
 
-* Ruby version
+Algorithm powered dog matching service that suggests dogs based on user lifestyle/profile
 
-* System dependencies
+##Technologies
 
-* Configuration
+- Ruby on Rails following MVC pattern
+- Bootstrap and custom CSS used in front-end design
 
-* Database creation
+##Contributors Guide
 
-* Database initialization
+This project adheres to the Open Code of Conduct
 
-* How to run the test suite
+##Contributors
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[Ellisa Shim](https://github.com/eshim12)
+[Erick Camacho](https://github.com/erickalexander)
