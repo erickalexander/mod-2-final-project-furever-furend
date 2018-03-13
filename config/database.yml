@@ -11,7 +11,7 @@ default: &default
 
 development:
   <<: *default
-  database: furever_furend_development
+  database: mod-2-final-project-furever-furend_development
   adapter: postgresql
   pool: 5
   timeout: 5000
@@ -21,14 +21,14 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: furever_furend_test
+  database: mod-2-final-project-furever-furend_test
   adapter: postgresql
   pool: 5
   timeout: 5000
 
 production:
   <<: *default
-  database: furever_furend_production
+  database: mod-2-final-project-furever-furend_production
   adapter: postgresql
   pool: 5
   timeout: 5000
